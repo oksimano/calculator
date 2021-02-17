@@ -2,13 +2,7 @@ import tkinter as tk
 import buttons
 
 calculator = tk.Tk()
-class Dictionary:
-    def __init__(self,r,c,i):
-        self.dict = {
 
-        }
-      
-        
 object = {}
 key = 0
 def board():
