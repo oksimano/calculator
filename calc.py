@@ -1,10 +1,12 @@
 import tkinter as tk
-import buttons
+
 
 calculator = tk.Tk()
-
 object = {}
-key = 0
+
+def onclick():
+    print("Button clicked")
+
 def board():
     # Need separate frames for a display, and the buttons
     display_frame = tk.Frame(calculator, width = 300, height = 300)
@@ -22,19 +24,20 @@ def board():
     lista = [[7, 8, 9, "/" ], [4, 5, 6, "*"], [1, 2, 3, "+"], ["=", 0, ".", "-"]]
     
    
-    global key
+
     for r in range(len(lista)):
         for c in range(len(lista[r])):
-            tk.Button(btns_frame, width = 10, height = 5, text = (lista[r][c]),
+            tk.Button(btns_frame, width = 10, height = 5, text = (lista[r][c]), command = onclick,
                 borderwidth = 1).grid(row=r, column=c)
             function = lista[r][c]
             row = r
             column = c
-            object[key] = function, row, column
-            print(object[key])
-            key += 1
-        
-                
+            object[function] = row, column
+     
+       
+           
+
+           
         
 
 
@@ -49,5 +52,7 @@ def answer():
 
 
 board()
+
+print(object)
 
 calculator.mainloop()
