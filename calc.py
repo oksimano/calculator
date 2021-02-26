@@ -3,9 +3,8 @@ import tkinter as tk
 
 calculator = tk.Tk()
 object = {}
-
-def click(button):
-    print("Button clicked on " + merge[button])
+calc_input = tk.StringVar()
+display_item = ""
     
    
 
@@ -13,9 +12,9 @@ def click(button):
 display_frame = tk.Frame(calculator, width = 300, height = 300)
 display_frame.pack()
 
-display_field = tk.Entry(display_frame, width = 50 , justify= "right" )
+display_field = tk.Entry(display_frame, width = 50 , justify= "right", textvariable = calc_input)
 display_field.grid(row = 0, column = 0, pady = 5, padx = 5, ipady = 10)
-display_field.insert(0, "user_display ")
+
 
 
 btns_frame = tk.Frame(calculator, width = 10, height = 10)
@@ -26,6 +25,7 @@ lol = ()
 merge = {}
 # Generate a 4 * 4 field for buttons
 def board():
+   
     lista = [['7', '8', '9', "/" ], ['4', '5', '6', "*"], ['1', '2', '3', "+"], ["=", '0', ".", "-"]]
     
     for r in range(len(lista)):
@@ -41,18 +41,22 @@ def board():
             button = btn
             ficktion = function
             merge[button] = ficktion
+    
     return merge[button]
     return btn    
 
-active="red"
-default_color="white"         
-        
+
+def click(button):
+    
+    print("Button clicked on " + merge[button])
+    a  = functions(merge[button])
+    
 
 
-def functions(args):
-    if args == 7:
-        print("Plusz 7")
-
+def functions(a):
+    if a != ("="):
+        display_item = a
+        calc_input.set(display_item)
 
 def calculations():
     pass
@@ -63,7 +67,7 @@ def answer():
 
 
 board()
-print(merge)
-functions('object')
+
+
 
 calculator.mainloop()
