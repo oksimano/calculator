@@ -81,7 +81,4 @@ def functions(a):
 
 
 board()
-
-
-
 calculator.mainloop()

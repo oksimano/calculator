@@ -35,31 +35,20 @@ def board():
             btn = tk.Button(btns_frame, width = 10, height = 5, text = (lista[r][c]), borderwidth = 1)
             btn.grid(row=r, column=c)
             btn["command"] = lambda btn = btn: click(btn)
-            function = lista[r][c]
-            row = r
-            column = c
-            object[function] = row, column
-           
-            button = btn
-            ficktion = function
-            merge[button] = ficktion
-    
-    return merge[button]
-    return btn    
+            merge[btn] = lista[r][c]
+            
+      
 
 
-def click(button):
+def click(btn):
     
-    print("Button clicked on " + merge[button])
-    a  = functions(merge[button])
+    print("Button clicked on " + merge[btn])
+    a  = functions(merge[btn])
     
 
 
 def functions(a):
     display_item = a
-    
-    
-    
     if a == '=':
         display_field.delete(tk.END)
         answer = eval(display_field.get())
@@ -78,7 +67,7 @@ def functions(a):
 
 
 
-''' Main'''
+
 
 board()
 calculator.mainloop()
