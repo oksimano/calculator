@@ -1,3 +1,5 @@
+''' This is a test tab'''
+
 import tkinter as tk
 
 
@@ -57,28 +59,26 @@ def functions(a):
     display_item = a
     
     
-    display_field.insert(tk.END, display_item)
+    
     if a == '=':
         display_field.delete(tk.END)
-        answer = eval(display_field.get()[:-1])
+        answer = eval(display_field.get())
         print(answer)    
         display_field.delete(0,tk.END)
         display_field.insert(tk.END, answer)
-    if a == 'CL':
+    elif a == 'CL':
         display_field.delete(0,tk.END)
-    if a == '«':
-        display_field.delete(-1)
-        
+    elif a == '«':
+        display_field.delete(len(display_field.get())-1)
+    else:
+        display_field.insert(tk.END, display_item)    
        
        
 
 
 
 
-
+''' Main'''
 
 board()
-
-
-
 calculator.mainloop()
