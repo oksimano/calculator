@@ -1,14 +1,8 @@
-''' This is a test tab'''
-
 import tkinter as tk
 
 
 calculator = tk.Tk()
-object = {}
 calc_input = tk.StringVar()
-
-
-
 merge = {}   
    
 
@@ -29,37 +23,26 @@ btns_frame.pack()
 def board():
    
     lista = [['CL', '«', ' ', '/'], ['7', '8', '9', '*' ], ['4', '5', '6', '+'], ['1', '2', '3', '-'], ['', '0', '.', '=']]
-    print(lista[0])
+    
     for r in range(len(lista)):
         for c in range(len(lista[r])):
             btn = tk.Button(btns_frame, width = 10, height = 5, text = (lista[r][c]), borderwidth = 1)
             btn.grid(row=r, column=c)
             btn["command"] = lambda btn = btn: click(btn)
-            function = lista[r][c]
-            row = r
-            column = c
-            object[function] = row, column
-           
-            button = btn
-            ficktion = function
-            merge[button] = ficktion
-    
-    return merge[button]
-    return btn    
+            merge[btn] = lista[r][c]
+            
+      
 
 
-def click(button):
+def click(btn):
     
-    print("Button clicked on " + merge[button])
-    a  = functions(merge[button])
+    print("Button clicked on " + merge[btn])
+    a  = functions(merge[btn])
     
 
 
 def functions(a):
     display_item = a
-    
-    
-    
     if a == '=':
         display_field.delete(tk.END)
         answer = eval(display_field.get())
