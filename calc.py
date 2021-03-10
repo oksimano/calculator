@@ -44,7 +44,7 @@ def click(btn):
 
 
 def functions(key):
-    display_item = key
+    
     if key == '=':
         display_field.delete(tk.END)
         answer = eval(display_field.get())
@@ -57,6 +57,8 @@ def functions(key):
         display_field.delete(len(display_field.get())-1)
     elif key == "+/-":
         display_field.insert('0', "-")
+    elif key == "0" and display_field.get() == 0: 
+        pass
     else:
         display_field.insert(tk.END, key)    
        
